@@ -10,9 +10,10 @@ RUN apk add --no-cache \
     openssh-client \
     ca-certificates
 
-# Install OpenCode CLI globally
+# Install OpenCode CLI globally and create required symlinks
 RUN npm install -g opencode-ai && \
-    ln -sf $(which opencode) /usr/local/bin/.opencode
+    mkdir -p /usr/local/lib/node_modules/opencode-ai/bin && \
+    ln -sf $(which opencode) /usr/local/lib/node_modules/opencode-ai/bin/.opencode
 
 # Create workspace directory for persistent storage
 RUN mkdir -p /workspace && chmod 777 /workspace
