@@ -19,9 +19,9 @@ RUN mkdir -p /workspace && chmod 777 /workspace
 # Set working directory
 WORKDIR /workspace
 
-# Create non-root user for security
-RUN addgroup -g 1000 opencode && \
-    adduser -D -u 1000 -G opencode opencode && \
+# Create non-root user for security (use auto-assigned IDs to avoid conflicts)
+RUN addgroup opencode && \
+    adduser -D -G opencode opencode && \
     chown -R opencode:opencode /workspace
 
 USER opencode
