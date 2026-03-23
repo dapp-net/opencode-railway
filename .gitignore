@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+*.log
+
+# Environment files (except example)
+.env
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Railway local files
+.railway/
+
+# Workspace (local development only)
+workspace/
