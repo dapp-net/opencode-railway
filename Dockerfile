@@ -11,7 +11,8 @@ RUN apk add --no-cache \
     ca-certificates
 
 # Install OpenCode CLI globally
-RUN npm install -g opencode-ai
+RUN npm install -g opencode-ai && \
+    ln -sf $(which opencode) /usr/local/bin/.opencode
 
 # Create workspace directory for persistent storage
 RUN mkdir -p /workspace && chmod 777 /workspace
